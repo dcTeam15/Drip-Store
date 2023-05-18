@@ -5,8 +5,8 @@ const App = () => {
 
   return (
     <>
-      <p>oi</p>
-        < Footer />
+    
+        
     </>
   )
 }
