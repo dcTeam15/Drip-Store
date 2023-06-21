@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { createContext } from "react"
 import { useState } from "react";
 import Ways from "./routes";
+import RecipeReviewCard from "./components/SpecialOffers";
 
 export const AuthContext = createContext(null);
 
@@ -21,7 +22,8 @@ const App = () => {
   return (
     <>
       <AuthContext.Provider value={{isLoggeg, setIsLoggeg}}>
-        <Ways />
+        {/* <Ways /> */}
+        <RecipeReviewCard/>
       </AuthContext.Provider>
     </>
   )
