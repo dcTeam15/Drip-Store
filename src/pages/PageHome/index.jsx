@@ -6,7 +6,9 @@ const PageHome = () => {
         <>
             <h1>Home</h1>
             
-            <ColecaoDestaque title="Coleções em destaque" />
+            <ColecaoDestaque title="Coleções em destaque" typeModeCollection="cards"/>
+
+            <ColecaoDestaque title="Coleções em destaque" typeModeCollection="icons"/>
         </>
     );
 }
