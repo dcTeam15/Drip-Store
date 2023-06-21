@@ -6,7 +6,7 @@ const PageHome = () => {
         <>
             <h1>Home</h1>
             
-            <ColecaoDestaque title="Olá mundo" />
+            <ColecaoDestaque title="Coleções em destaque" />
         </>
     );
 }
