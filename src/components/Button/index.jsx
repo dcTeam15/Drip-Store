@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 
+// eslint-disable-next-line react/prop-types
 export function Button({ stateBtn, onClick, type, children, classe }) {
   const [clicked, setClicked] = useState(stateBtn);
 
@@ -18,7 +19,6 @@ export function Button({ stateBtn, onClick, type, children, classe }) {
 }
 
 const Container = styled.button`
-  margin: 10px;
   width: 110px;
   height: 43px;
   line-height: 20px;
@@ -27,7 +27,7 @@ const Container = styled.button`
   cursor: pointer;
   transition-duration: 200ms;
   &.outlined {
-    background-color: #f8f8f8;
+    background-color: #dfdbdb;
     text-decoration: underline;
     color: #474747;
   }
