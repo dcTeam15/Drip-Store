@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { createContext } from "react"
 import { useState } from "react";
 import Ways from "./routes";
+import './App.css'
 
 export const AuthContext = createContext(null);
 
