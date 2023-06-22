@@ -85,6 +85,6 @@ const SearchIcon = styled.button`
 
 const Container = styled.form`
   position: relative;
-  width: 40rem;
   height: 64px;
+  width: 100%;
 `;

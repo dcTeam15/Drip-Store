@@ -53,7 +53,7 @@ const MenuList = styled.ul`
     position: absolute;
     top: 40px;
     left: 0;
-    width: 100%;
+    width: 120px;
     background-color: #f9f9f9;
   }
 `;
@@ -96,6 +96,9 @@ const StyledLink = styled(Link)`
 
     &::after {
       display: none;
+    }
+    &:hover, :active {
+      filter: brightness(0.1);
     }
   }
 `;
