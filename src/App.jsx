@@ -3,6 +3,9 @@ import { createContext } from "react"
 import { useState } from "react";
 import Ways from "./routes";
 
+
+
+
 export const AuthContext = createContext(null);
 
 const App = () => {
@@ -21,7 +24,7 @@ const App = () => {
   return (
     <>
       <AuthContext.Provider value={{isLoggeg, setIsLoggeg}}>
-        <Ways />
+        <Ways /> 
       </AuthContext.Provider>
     </>
   )
