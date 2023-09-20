@@ -17,6 +17,9 @@ const Ways = () => {
         {isLoggeg ? (
           <Route path="/" element={<PageLayout />}>
             <Route index element={<PageHome />} />
+            <Route path="/produtos" element={<PageHome />} />
+            <Route path="/categorias" element={<PageHome />} />
+            <Route path="/meus-pedidos" element={<PageHome />} />
             <Route path="/conclusao-de-compra" element={<PageFinishShop />} />
           </Route>
         ) : (
