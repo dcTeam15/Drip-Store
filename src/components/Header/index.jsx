@@ -1,11 +1,8 @@
 import { ShoppingCart } from "@mui/icons-material";
-import { Link, useLocation } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 const Header = () => {
-
-    const navigator = useLocation();
-    console.log(navigator);
 
     return(
         <>
@@ -26,16 +23,16 @@ const Header = () => {
                 <HeaderMenu>
                     <ul>
                         <li>
-                            <Link className={navigator.pathname === '/' ? 'active' : ''} to={'/'}>{'Início'}</Link>
+                            <NavLink to={'/'}>{'Início'}</NavLink>
                         </li>
                         <li>
-                            <Link className={navigator.pathname === '/produtos' ? 'active' : ''} to={'/produtos'}>{'Produtos'}</Link>
+                            <NavLink to={'/produtos'}>{'Produtos'}</NavLink>
                         </li>
                         <li>
-                            <Link className={navigator.pathname === '/categorias' ? 'active' : ''} to={'/categorias'}>{'Categorias'}</Link>
+                            <NavLink to={'/categorias'}>{'Categorias'}</NavLink>
                         </li>
                         <li>
-                            <Link className={navigator.pathname === '/meus-pedidos' ? 'active' : ''} to={'/meus-pedidos'}>{'Meus Pedidos'}</Link>
+                            <NavLink to={'/meus-pedidos'}>{'Meus Pedidos'}</NavLink>
                         </li>
                     </ul>
                 </HeaderMenu>
