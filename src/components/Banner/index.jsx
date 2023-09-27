@@ -44,7 +44,7 @@ const Banner = () => {
                                     </p>
                                     <Link to={'/'}>Ver Ofertas</Link>
                                 </CarousselContent>
-                                <CarousselImage src={item.image} />
+                                <CarousselImage className={ carousselAtivo == index ? 'active' : '' } src={item.image} />
                             </CarousselItem>
                         ))
                     }
@@ -138,7 +138,14 @@ const CarousselContent = styled.div`
 
 const CarousselImage = styled.img`
     flex: 1;
-    transform: rotate(-10deg);
+    object-fit: none;
+    transform: rotate(0deg);
+    transition-duration: 400ms;
+    transition-delay: 400ms;
+
+    &.active{
+        transform: rotate(-15deg);
+    }
 `;
 
 const CarousselOptions = styled.div`
