@@ -88,6 +88,26 @@ const CarousselItem = styled.div`
     padding: 0 100px;
     width: 100vw;
     height: calc(100vh - 120px);
+    position: relative;
+
+    &::after{
+        content: "";
+        width: 140px;
+        height: 140px;
+        background: radial-gradient(circle at center, #F6AA1C 20%, transparent 22%),transparent; 
+        background-size: 16px 16px;
+        position: absolute;
+        top: 78px;
+        right: 38px;
+        border-radius: 100%;
+        overflow: hidden;
+        animation: piscar infinite alternate 2s;
+    }
+
+    @keyframes piscar {
+        from{transform: scale(.5, .5) rotate(0deg);}
+        to{transform: scale(1, 1) rotate(90deg);}
+    }
 `;
 
 const CarousselContent = styled.div`
