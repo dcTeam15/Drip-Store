@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Image1 from '../img/Tenis1.png';
 import Image2 from '../img/Tenis2.png';
 import Image3 from '../img/Tenis8.png';
@@ -12,67 +12,56 @@ const Banner = () => {
     let items = [
         {
             image: Image1,
-            description: "Melhores ofertas personalizadas",
-            name: "Consequat culpa exercitation mollit nisi excepteur do do tempor laboris eiusmod irure consectetur."
+            suptitle: "Melhores ofertas personalizadas",
+            description: "Consequat culpa exercitation mollit nisi excepteur do do tempor laboris eiusmod irure consectetur."
         },
         {
             image:Image2,
-            description: "Melhores ofertas personalizadas",
-            name: "Consequat culpa exercitation mollit nisi excepteur do do tempor laboris eiusmod irure consectetur."
+            suptitle: "Melhores ofertas personalizadas",
+            description: "Consequat culpa exercitation mollit nisi excepteur do do tempor laboris eiusmod irure consectetur."
         },
         {
             image:Image3,
-            description: "Melhores ofertas personalizadas",
-            name: "Consequat culpa exercitation mollit nisi excepteur do do tempor laboris eiusmod irure consectetur."
+            suptitle: "Melhores ofertas personalizadas",
+            description: "Consequat culpa exercitation mollit nisi excepteur do do tempor laboris eiusmod irure consectetur."
         }
     ];
 
-    function next(){
-        
-    }
+    const [carousselAtivo, setCarousselAtivo] = useState(0);
 
     return(
         <>
             <Caroussel>
-                <CarousselItems>
-                    <CarousselItem>
-                        <CarousselContent>
-                            <h6>Melhores ofertas personalizadas</h6>
-                            <h2>Queima de<br/>estoque Nike</h2>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis amet minus aspernatur debitis quod voluptas iste asperiores.
-                            </p>
-                            <Link to={'/'}>Ver Ofertas</Link>
-                        </CarousselContent>
-                        <CarousselImage src={Image1} />
-                    </CarousselItem>
-                    <CarousselItem>
-                        <CarousselContent>
-                            <h6>Melhores ofertas personalizadas</h6>
-                            <h2>Queima de<br/>estoque Nike</h2>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis amet minus aspernatur debitis quod voluptas iste asperiores.
-                            </p>
-                            <Link to={'/'}>Ver Ofertas</Link>
-                        </CarousselContent>
-                        <CarousselImage src={Image2} />
-                    </CarousselItem>
-                    <CarousselItem>
-                        <CarousselContent>
-                            <h6>Melhores ofertas personalizadas</h6>
-                            <h2>Queima de<br/>estoque Nike</h2>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis amet minus aspernatur debitis quod voluptas iste asperiores.
-                            </p>
-                            <Link to={'/'}>Ver Ofertas</Link>
-                        </CarousselContent>
-                        <CarousselImage src={Image3} />
-                    </CarousselItem>
+                <CarousselItems position={carousselAtivo} qtd={items.length}>
+                    {
+                        items.map((item, index) => (
+                            <CarousselItem className={ carousselAtivo == index ? 'active' : '' }>
+                                <CarousselContent>
+                                    <h6>{item.suptitle}</h6>
+                                    <h2>Queima de<br/>estoque Nike</h2>
+                                    <p>
+                                        {item.description}
+                                    </p>
+                                    <Link to={'/'}>Ver Ofertas</Link>
+                                </CarousselContent>
+                                <CarousselImage src={item.image} />
+                            </CarousselItem>
+                        ))
+                    }
                 </CarousselItems>
                 <CarousselOptions>
-                    <CarousselOption className='active' />
-                    <CarousselOption />
-                    <CarousselOption />
+                    <CarousselOption
+                        className={ carousselAtivo == 0 ? 'active' : '' }
+                        onClick={() => setCarousselAtivo(0)}
+                    />
+                    <CarousselOption
+                        className={ carousselAtivo == 1 ? 'active' : '' }
+                        onClick={() => setCarousselAtivo(1)}
+                    />
+                    <CarousselOption
+                        className={ carousselAtivo == 2 ? 'active' : '' }
+                        onClick={() => setCarousselAtivo(2)}
+                    />
                 </CarousselOptions>
             </Caroussel>
         </>
@@ -82,11 +71,15 @@ const Banner = () => {
 const Caroussel = styled.div`
     position: relative;
     overflow: hidden;
+    background-color: #47474720;
 `;
 
 const CarousselItems = styled.div`
-    width: calc(100% * 3);
+    width: calc(100% * ${props => props.qtd});
     display: flex;
+    position: relative;
+    left: calc(-100vw * ${props => props.position});
+    transition-duration: 300ms;
 `;
 
 const CarousselItem = styled.div`
