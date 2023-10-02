@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image1 from '../img/Tenis1.png';
 import Image2 from '../img/Tenis2.png';
 import Image3 from '../img/Tenis8.png';
@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 // import { Paper, Button } from '@mui/material'
 
 const Banner = () => {
+
     let items = [
         {
             image: Image1,
@@ -24,7 +25,22 @@ const Banner = () => {
             image:Image3,
             suptitle: "Melhores ofertas personalizadas",
             description: "Consequat culpa exercitation mollit nisi excepteur do do tempor laboris eiusmod irure consectetur."
-        }
+        },
+        {
+            image:Image3,
+            suptitle: "4º item",
+            description: "Consequat culpa exercitation mollit nisi excepteur do do tempor laboris eiusmod irure consectetur."
+        },
+        {
+            image: Image1,
+            suptitle: "Melhores ofertas personalizadas",
+            description: "Consequat culpa exercitation mollit nisi excepteur do do tempor laboris eiusmod irure consectetur."
+        },
+        {
+            image:Image2,
+            suptitle: "Melhores ofertas personalizadas",
+            description: "Consequat culpa exercitation mollit nisi excepteur do do tempor laboris eiusmod irure consectetur."
+        },
     ];
 
     const [carousselAtivo, setCarousselAtivo] = useState(0);
@@ -35,7 +51,7 @@ const Banner = () => {
                 <CarousselItems position={carousselAtivo} qtd={items.length}>
                     {
                         items.map((item, index) => (
-                            <CarousselItem className={ carousselAtivo == index ? 'active' : '' }>
+                            <CarousselItem key={index} className={ carousselAtivo == index ? 'active' : '' }>
                                 <CarousselContent>
                                     <h6>{item.suptitle}</h6>
                                     <h2>Queima de<br/>estoque Nike</h2>
@@ -50,18 +66,16 @@ const Banner = () => {
                     }
                 </CarousselItems>
                 <CarousselOptions>
-                    <CarousselOption
-                        className={ carousselAtivo == 0 ? 'active' : '' }
-                        onClick={() => setCarousselAtivo(0)}
-                    />
-                    <CarousselOption
-                        className={ carousselAtivo == 1 ? 'active' : '' }
-                        onClick={() => setCarousselAtivo(1)}
-                    />
-                    <CarousselOption
-                        className={ carousselAtivo == 2 ? 'active' : '' }
-                        onClick={() => setCarousselAtivo(2)}
-                    />
+                    {
+                        items.map((item, index) => (
+                            <CarousselOption
+                                key={index}
+                                className={ carousselAtivo == index ? 'active' : '' }
+                                onClick={() => setCarousselAtivo(index)}
+                            />
+
+                        ))
+                    }
                 </CarousselOptions>
             </Caroussel>
         </>

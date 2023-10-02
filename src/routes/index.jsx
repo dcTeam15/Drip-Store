@@ -7,6 +7,7 @@ import { AuthContext } from "../App";
 import PageLayout from "../layouts/PageLayout";
 import AuthLayout from "../layouts/AuthLayout";
 import PageFinishShop from "../pages/PageFinishShop";
+import PageProdutos from "../pages/PageProdutos";
 
 const Ways = () => {
   const { isLoggeg } = useContext(AuthContext);
@@ -17,7 +18,7 @@ const Ways = () => {
         {isLoggeg ? (
           <Route path="/" element={<PageLayout />}>
             <Route index element={<PageHome />} />
-            <Route path="/produtos" element={<PageHome />} />
+            <Route path="/produtos" element={<PageProdutos />} />
             <Route path="/categorias" element={<PageHome />} />
             <Route path="/meus-pedidos" element={<PageHome />} />
             <Route path="/conclusao-de-compra" element={<PageFinishShop />} />
